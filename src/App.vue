@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<div class="min-h-screen flex flex-col bg-gradient-to-r from-emerald-900 to-cyan-800">
+		<TheHeader class="basis-1/6"/>
+		<TheMap style="height:500px"/>
+		<TheInputAddressField class="basis-2/6"/>
+		<TheFooter class="basis-1/6"/>
+	</div>
 </template>
-
+ 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import TheMap from './components/TheMap.vue';
+import TheInputAddressField from './components/TheInputAddressField.vue';
+import TheHeader from './components/TheHeader.vue';
+import TheFooter from './components/TheFooter.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	name: 'App',
+	components: {
+		TheMap,
+		TheInputAddressField,
+		TheHeader,
+		TheFooter
+	}
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
