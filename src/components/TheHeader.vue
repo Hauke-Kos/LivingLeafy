@@ -1,5 +1,5 @@
 <template>
-    <h1 class="flex justify-center text-8xl text-teal-400 font-mono">Leafy Home</h1>
+    <h1 class="text-center text-6xl text-teal-400 font-mono">Leafy Home</h1>
 </template>
 
 <script>

@@ -1,16 +1,16 @@
 <template>
     <div class="max-h-screen flex flex-col" id="address-input">
-        <div class="flex flex-col"> 
+        <!--div class="flex flex-col"> 
             <label class="text-2xl text-teal-400 font-mono">Adress</label>
             <input class="rounded-full" type="text" v-model="street" placeholder="Enter a street">
-        </div>
-        <div class="flex flex-col"> 
+        </div-->
+        <!--div class="flex flex-col"> 
             <label class="text-2xl text-teal-400 font-mono">Radius</label>
             <input class="rounded-full" type="text" v-model="radius" placeholder="Enter a radius">
-        </div>
-        <div class="justify-content-center"> 
+        </div-->
+        <!--div class="justify-content-center"> 
             <button class="rounded-full text-2xl bg-teal-400 font-mono" @click="geocode">Geocode</button>
-        </div>
+        </div-->
         <div> 
             <label class="rounded-full text-2xl text-teal-400 font-mono">{{coordinatesStore.relativeArea}}% Park-Area</label>
         </div>

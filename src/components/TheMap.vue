@@ -16,6 +16,7 @@ import { circular } from "ol/geom/Polygon";
 import { transform } from "ol/proj";
 import { Stroke, Fill } from "ol/style";
 import { coordinatesStore } from "../lib/coordinatesStore.js";
+import { addressAndRadiusStore } from "../lib/addressAndRadiusStore.js";
 import { zoomStepCalculation, areaCalculation } from "../lib/calculations.js";
 import FeatureCollection from "../assets/de_hh_up_verzeichnis_oeffentlicher_gruenanlagen_EPSG_4326.json";
 
@@ -27,6 +28,7 @@ export default {
 	data() {
 		return {
 			coordinatesStore,
+			addressAndRadiusStore,
 			map: null,
 			features: null,
 		};
@@ -131,7 +133,7 @@ export default {
 		coordinatesStore: {
 			handler(newValue, oldValue) {
 				this.zoomToInputAddress(coordinatesStore.lat, coordinatesStore.lon);
-				this.drawCircle( coordinatesStore.radius);
+				this.drawCircle( addressAndRadiusStore.radius);
 				//console.log(newValue, oldValue);
 			},
 			deep: true,

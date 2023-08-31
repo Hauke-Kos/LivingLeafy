@@ -76,7 +76,6 @@ function areaIntersectCalculation(circle) {
 function areaCalculation(circle, radius){
     const intersectArea = areaIntersectCalculation(circle);
     const circleArea = radius*radius * Math.PI;
-    //console.log(circleArea);
     return ((intersectArea / circleArea) * 100).toFixed(2);
 }
 
