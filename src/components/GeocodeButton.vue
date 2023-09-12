@@ -1,5 +1,5 @@
 <template>
-    <button class="w-full h-full rounded-full text-2xl bg-teal-400 font-mono" @click="geocode">Geocode</button>
+    <button class="w-full h-full rounded-full text-4xl text-white bg-nice-green-4 font-mono font-bold" @click="geocode">Geocode</button>
 </template>
 
 <script>

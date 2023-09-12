@@ -1,5 +1,5 @@
 <template>
-	<div class="min-h-screen bg-gradient-to-r from-emerald-900 to-cyan-800">
+	<div class="min-h-screen bg-white text-nice-green-3 font-bold">
 		<div class="min-h-screen grid grid-cols-10 grid-rows-10 gap-2">
 				<TheHeader class="col-span-8 col-start-2 self-center"/>
 			<div class="col-span-8 row-span-5 col-start-2 row-start-2">

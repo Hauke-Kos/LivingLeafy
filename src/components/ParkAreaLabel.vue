@@ -1,6 +1,6 @@
 <template>
     <h1 class="text-center">
-        <label class="rounded-full text-4xl text-teal-400 font-mono">{{coordinatesStore.relativeArea}}% Park-Area</label>
+        <label class="rounded-full text-4xl font-mono">{{coordinatesStore.relativeArea}}% Park-Area</label>
     </h1>
 </template>
 
