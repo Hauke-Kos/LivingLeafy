@@ -63,7 +63,6 @@ function areaIntersectCalculation(circle) {
     for (const feature of intersectionsFeatures) {
         area += turf.area(feature);
     }
-    //console.log(area);
     return area;
 }
 
@@ -79,11 +78,4 @@ function areaCalculation(circle, radius){
     return ((intersectArea / circleArea) * 100).toFixed(2);
 }
 
-
-function zoomStepCalculation(radius) {
-    console.log(radius);
-    return 14;
-    //return parseInt(radius / 1000);
-}
-
-export { zoomStepCalculation, areaCalculation };
+export { areaCalculation };

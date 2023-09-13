@@ -1,19 +1,19 @@
 <template>
     <h1 class="text-center">
-        <label class="rounded-full text-4xl font-mono">{{coordinatesStore.relativeArea}}% Park-Area</label>
+        <label class="rounded-full text-4xl font-mono">{{parkAreaStore.relativeArea}}% Park-Area</label>
     </h1>
 </template>
 
 <script>
 
-import { coordinatesStore } from '../lib/coordinatesStore.js';
+import { parkAreaStore } from '../lib/parkAreaStore.js';
 
 export default ({
     name: 'ParkAreaLabel',
     components: {},
     data() {
         return {
-            coordinatesStore
+            parkAreaStore
         }
     }
 })

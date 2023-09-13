@@ -12,12 +12,14 @@ import Style from "ol/style/Style";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import GeoJSON from "ol/format/GeoJSON.js";
+//import ZoomToExtent from 'ol/control/ZoomToExtent.js';
 import { circular } from "ol/geom/Polygon";
 import { transform } from "ol/proj";
 import { Stroke, Fill } from "ol/style";
 import { coordinatesStore } from "../lib/coordinatesStore.js";
 import { addressAndRadiusStore } from "../lib/addressAndRadiusStore.js";
-import { zoomStepCalculation, areaCalculation } from "../lib/calculations.js";
+import { parkAreaStore } from "../lib/parkAreaStore.js";
+import { areaCalculation } from "../lib/calculations.js";
 import FeatureCollection from "../assets/de_hh_up_verzeichnis_oeffentlicher_gruenanlagen_EPSG_4326.json";
 
 const center = transform([10.01534, 53.57532], "EPSG:4326", "EPSG:3857");
@@ -29,7 +31,9 @@ export default {
 		return {
 			coordinatesStore,
 			addressAndRadiusStore,
+			parkAreaStore,
 			map: null,
+			view: null,
 			features: null,
 		};
 	},
@@ -40,6 +44,12 @@ export default {
 			feature.getGeometry().transform("EPSG:4326", "EPSG:3857");
 		}
 		// Create the map
+		this.view = new View({
+			zoom: 11,
+			center: center,
+			constrainResolution: true,
+		}),
+
 		this.map = new Map({
 			target: "map",
 			layers: [
@@ -67,11 +77,7 @@ export default {
 				}),
 			],
 			// The map is locked on Hamburg initially
-			view: new View({
-				zoom: 11,
-				center: center,
-				constrainResolution: true,
-			}),
+			view: this.view
 		});
 	},
 	methods: {
@@ -80,13 +86,8 @@ export default {
 		 * @param {number} lat 
 		 * @param {number} lon 
 		 */
-		zoomToInputAddress(lat, lon) {
-			this.map.setView(
-				new View({
-					center: transform([lon, lat], "EPSG:4326", "EPSG:3857"),
-					zoom: zoomStepCalculation(coordinatesStore.radius),
-				})
-			);
+		zoomToInputAddress(circleFeature) {
+			this.view.fit(circleFeature.getGeometry(), {padding: [50, 50, 50, 50]});
 		},
 		/**
 		 * Draw a circle with radius is the passed radius argeument
@@ -94,6 +95,8 @@ export default {
 		 */
 		drawCircle(radius) {
 			const projection = this.map.getView().getProjection();
+			const newCenter = transform([coordinatesStore.lon, coordinatesStore.lat], "EPSG:4326", "EPSG:3857");
+			this.view.setCenter(newCenter);
 			// Set the center of the circle as adress point, which is zoomed in
 			const circle = circular(
 				transform(this.map.getView().getCenter(), projection, "EPSG:4326"),
@@ -101,9 +104,7 @@ export default {
 				128
 			);
 			// Calculate area before transform coordinates
-			console.log("Area");
-			console.log(areaCalculation(circle, radius));
-			coordinatesStore.relativeArea = areaCalculation(circle, radius);
+			parkAreaStore.relativeArea = areaCalculation(circle, radius);
 			circle.transform("EPSG:4326", projection);
 			const circleFeature = new Feature({
 				geometry: circle,
@@ -127,14 +128,15 @@ export default {
 			})
 			// Add layer to map
 			this.map.addLayer(layer);
+			// Zoom to circle
+			this.zoomToInputAddress(circleFeature);
 		},
 	},
 	watch: {
 		coordinatesStore: {
 			handler(newValue, oldValue) {
-				this.zoomToInputAddress(coordinatesStore.lat, coordinatesStore.lon);
-				this.drawCircle( addressAndRadiusStore.radius);
-				//console.log(newValue, oldValue);
+				this.drawCircle( addressAndRadiusStore.radius );
+				console.log(newValue, oldValue);
 			},
 			deep: true,
 		},
