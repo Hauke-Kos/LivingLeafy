@@ -12,15 +12,17 @@ import Style from "ol/style/Style";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import GeoJSON from "ol/format/GeoJSON.js";
-//import ZoomToExtent from 'ol/control/ZoomToExtent.js';
 import { circular } from "ol/geom/Polygon";
 import { transform } from "ol/proj";
 import { Stroke, Fill } from "ol/style";
 import { coordinatesStore } from "../lib/coordinatesStore.js";
 import { addressAndRadiusStore } from "../lib/addressAndRadiusStore.js";
 import { parkAreaStore } from "../lib/parkAreaStore.js";
-import { areaCalculation } from "../lib/calculations.js";
-import FeatureCollection from "../assets/de_hh_up_verzeichnis_oeffentlicher_gruenanlagen_EPSG_4326.json";
+import { areaCalculation } from "../lib/calculations.js"; 
+import FeatureCollection from "../assets/transformed_geojson_data_hamburg.json"
+// Purpose: If the data change, this function is to transform the coordinates of the new FeatureCollection from EPSG:4326 to EPSG:3857
+// import { formatData } from "../lib/transformGeoJSONFormatData.js";
+
 
 const center = transform([10.01534, 53.57532], "EPSG:4326", "EPSG:3857");
 
@@ -38,11 +40,9 @@ export default {
 		};
 	},
 	mounted() {
+		//formatData(); // Uncomment to download the transformed Feature Collection
 		const geo = new GeoJSON();
 		this.features = geo.readFeatures(FeatureCollection);
-		for (const feature of this.features) {
-			feature.getGeometry().transform("EPSG:4326", "EPSG:3857");
-		}
 		// Create the map
 		this.view = new View({
 			zoom: 11,
