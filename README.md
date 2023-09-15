@@ -9,6 +9,12 @@ Type the address and the radius into the input fields and after clicking the `Ge
 seconds the realtive area of public park area inside the circle will be calculated. 
 The green yields are the public park area, teh blue circle show the area with the radius around the adress.
 
+This picture show the default site after starting/opening the webiste
+![Alt text](./docs/images/Leafy-Home-Default.png?raw=true "Default Site")
+
+An example how this webiste work, the esample address is Rathausmarkt 1 in Hamburg the radius is given with 1000 meter
+![Alt text](./docs/images/Leafy-Home-Rathausmarkt.png??raw=true "Example with Rathausmarkt 1, Hamburg")
+
 ## Project setup
 ```
 npm install
