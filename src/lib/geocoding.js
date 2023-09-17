@@ -3,6 +3,7 @@ const axios = require('axios');
 const ENDPOINT = 'https://nominatim.openstreetmap.org/';
 const FORMAT = 'jsonv2';
 
+// 
 let coordinatesLatLon = {
     lat: 0,
     lon: 0
@@ -10,6 +11,11 @@ let coordinatesLatLon = {
 
 module.exports = {
 
+    /**
+     * 
+     * @param {String} streetName 
+     * @returns Object
+     */
     async geocoding(streetName) {
 
         const coordinates = await axios.get(ENDPOINT, {
@@ -20,6 +26,11 @@ module.exports = {
                 country: 'Germany'
             }
         });
+        // Check for correct cooridnates, reloads when they aren't valid
+        if(this.coordinates === undefined){
+            alert("Error, please enter a valid adress!");
+            window.location.reload();
+        }
         coordinatesLatLon.lat = coordinates.data[0].lat;
         coordinatesLatLon.lon = coordinates.data[0].lon;
         return coordinatesLatLon;
