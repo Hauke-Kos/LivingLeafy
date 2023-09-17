@@ -82,7 +82,7 @@ export default {
 	},
 	methods: {
 		/**
-		 * 
+		 * Zoom to the address, zoom step is selected by the size of the circle with a padding
 		 * @param {number} lat 
 		 * @param {number} lon 
 		 */
@@ -134,9 +134,10 @@ export default {
 	},
 	watch: {
 		coordinatesStore: {
+			// Turn of eslint, because it throws the erro of unused newValue and oldValue
+			// eslint-disable-next-line
 			handler(newValue, oldValue) {
 				this.drawCircle( addressAndRadiusStore.radius );
-				console.log(newValue, oldValue);
 			},
 			deep: true,
 		},

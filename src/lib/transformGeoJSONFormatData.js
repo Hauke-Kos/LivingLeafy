@@ -1,3 +1,9 @@
+/**
+ * This module is not called by deafult. In case the data of the park area has changed, this will transform a given Feature Collection
+ * from the projection EPSG:4326 to EPSG:3857 and download it in the background
+ */
+
+
 import FeatureCollection from "../assets/de_hh_up_verzeichnis_oeffentlicher_gruenanlagen_EPSG_4326.json"
 import GeoJSON from "ol/format/GeoJSON.js";
 

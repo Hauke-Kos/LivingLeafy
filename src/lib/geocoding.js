@@ -3,7 +3,7 @@ const axios = require('axios');
 const ENDPOINT = 'https://nominatim.openstreetmap.org/';
 const FORMAT = 'jsonv2';
 
-// 
+// Latitude and longitude coordinates object
 let coordinatesLatLon = {
     lat: 0,
     lon: 0
@@ -12,7 +12,7 @@ let coordinatesLatLon = {
 module.exports = {
 
     /**
-     * 
+     * Call openstreemap API to get the coordinates of the street
      * @param {String} streetName 
      * @returns Object
      */

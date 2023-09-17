@@ -32,6 +32,7 @@ export default ({
                 alert("Please enter a number between 1 and 10000 as meters for the radius!");
                 window.location.reload();
             }
+            // Store coordinates of geocoded address
             this.coordinates = await geocoding(addressAndRadiusStore.street);
             coordinatesStore.lat = this.coordinates.lat;
             coordinatesStore.lon = this.coordinates.lon;
