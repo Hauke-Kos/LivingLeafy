@@ -24,10 +24,6 @@ export default ({
                 alert("Please enter a number as radius!");
                 window.location.reload();
             }
-            console.log(addressAndRadiusStore.radius);
-            // Check for a number between 1 and 10000 as a number for the radius
-            console.log(addressAndRadiusStore.radius < 1);
-            console.log(addressAndRadiusStore.radius >= 10000);
             if (addressAndRadiusStore.radius < 1 || addressAndRadiusStore.radius >= 10000) {
                 alert("Please enter a number between 1 and 10000 as meters for the radius!");
                 window.location.reload();

@@ -27,7 +27,7 @@ module.exports = {
             }
         });
         // Check for correct cooridnates, reloads when they aren't valid
-        if(this.coordinates === undefined){
+        if(coordinates === undefined){
             alert("Error, please enter a valid adress!");
             window.location.reload();
         }
