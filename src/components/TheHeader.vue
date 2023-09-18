@@ -1,5 +1,5 @@
 <template>
-    <h1 class="text-center text-7xl font-mono font-bold">Leafy Home</h1>
+    <h1 class="text-center text-7xl font-mono font-bold">Living Leafy</h1>
 </template>
 
 <script>
