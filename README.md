@@ -2,7 +2,7 @@
 
 ## Development Documentation
 
-The opening question for thsi project is: \' How much park area are in my surronding area to enjoy the nature in the city? \'
+The opening question for this project is: ' How much park area are in my surronding area to enjoy the nature in the city?'
 Requierements that the project should fullfill are:
 * Show all park area of the city Hamburg on a map
 * Users can input a address and a radius
@@ -12,6 +12,7 @@ Requierements that the project should fullfill are:
 
 The data of the official park areas of the city Hamburg is provided by 'Freie und Hansestadt Hamburg, Behörde für Umwelt und Energie'.
 
+![Alt text](./docs/images/Living-Leafy-UML.jpg)
 ## Usage
 
 For now, it's only working properly for the city Hamburg, Germany. 
