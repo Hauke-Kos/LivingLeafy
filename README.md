@@ -36,6 +36,14 @@ This picture show the default site after starting/opening the webiste
 An example how this webiste work, the esample address is Rathausmarkt 1 in Hamburg the radius is given with 1000 meter
 ![Alt text](./docs/images/Living-Leafy-Rathausmarkt.png??raw=true "Example with Rathausmarkt 1, Hamburg")
 
+## Further Development
+
+For now, this map only works for Hamburg, Germany. It also show only the official park areas from the city exluded forrest or unofficial park areas in the city.
+Furthermore the calculating time is long. Main points for further development should be:
+* All green areas in the city should be included on the map e.g. forrest
+* All possible places in Germany, which have published the data should be included
+* Calucaltion time should be reduced
+
 ## Project setup
 ```
 npm install
