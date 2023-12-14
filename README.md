@@ -1,4 +1,4 @@
-# leafy_home
+# Living Leafy
 
 ## Development Documentation
 
