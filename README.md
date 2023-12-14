@@ -39,10 +39,10 @@ An example how this webiste work, the esample address is Rathausmarkt 1 in Hambu
 ## Further Development
 
 For now, this map only works for Hamburg, Germany. It also show only the official park areas from the city exluded forrest or unofficial park areas in the city.
-Furthermore the calculating time is long. Main points for further development should be:
+Furthermore the calculating time is with 3 to 4 seconds too long. Main points for further development should be:
 * All green areas in the city should be included on the map e.g. forrest
 * All possible places in Germany, which have published the data should be included
-* Calucaltion time should be reduced
+* Calucaltion time should be reduced, in the optimal case under 1 second 
 
 ## Project setup
 ```
